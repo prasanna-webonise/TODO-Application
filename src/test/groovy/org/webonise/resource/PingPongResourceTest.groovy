@@ -5,10 +5,11 @@ import spock.lang.Specification
 class PingPongResourceTest extends Specification {
     def "when PingPongResource get method is called"() {
         setup:
-        PingPongResource pingPongResource = new PingPongResource()
+        PingResource pingPongResource = new PingResource()
+        pingPongResource.ping
         when:
-        def result = pingPongResource.SendPingResponse()
+        def result = pingPongResource.getPing()
         then:
-        result.equalsIgnoreCase("pong")
+        result.equals(pingPongResource.ping)
     }
 }

@@ -1,4 +1,4 @@
-package org.webonise.TodoRouting
+package org.webonise
 
 import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j

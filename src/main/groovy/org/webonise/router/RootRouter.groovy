@@ -10,6 +10,6 @@ class RootRouter extends RestlingRouter {
 
     @Override
     void init() throws Exception {
-        attachSubRouter("/pingpong", PingPongRouter)
+        attachSubRouter("/meta", MetaRouter)
     }
 }

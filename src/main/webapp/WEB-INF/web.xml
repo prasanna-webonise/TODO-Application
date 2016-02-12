@@ -7,7 +7,7 @@
         <servlet-class>restling.RestlingServlet</servlet-class>
         <init-param>
             <param-name>guice-module</param-name>
-            <param-value>org.webonise.TodoRouting.ApplicationModule</param-value>
+            <param-value>org.webonise.ApplicationModule</param-value>
         </init-param>
     </servlet>
     <servlet-mapping>
