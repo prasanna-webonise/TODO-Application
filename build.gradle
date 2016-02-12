@@ -1,5 +1,40 @@
+group 'org.webonise.todo'
+version '1.0-SNAPSHOT'
+
 apply plugin: 'groovy'
 apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.akhikhl.gretty'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'org.akhikhl.gretty:gretty:+'
+        classpath 'org.jooq:jooq-codegen:3.5.4'
+        classpath 'mysql:mysql-connector-java:5.1.6'
+    }
+
+}
+
+configurations{
+    liquibase
+    all*.resolutionStrategy {
+        force "org.codehaus.groovy:groovy-all:2.4.5"
+    }
+}
+
+gretty {
+    servletContainer = 'tomcat8'
+    contextPath = ""
+}
 
 repositories {
     mavenLocal()
@@ -9,6 +44,10 @@ repositories {
 
 dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.4.5'
+    compile 'restling:restling-core:0.0.7'
+    compile 'org.slf4j:slf4j-simple:1.7.12'
+    compile 'com.google.inject:guice-parent:3.0'
+    compile 'org.slf4j:slf4j-api:1.7.12'
 
     testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
     testCompile 'junit:junit:4.12'
